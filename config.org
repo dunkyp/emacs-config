@@ -16,6 +16,8 @@ Emacs with no packages is a little basic let's add some nice stuff
   (use-package lsp-mode
     :init (setq lsp-enable-on-type-formatting nil)
     :config (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+    :hook ((c-mode . lsp)
+	   (c++-mode . lsp))
     :commands (lsp lsp-deferred))
   (use-package lsp-ui
     :custom
@@ -75,7 +77,9 @@ Emacs with no packages is a little basic let's add some nice stuff
 #+BEGIN_SRC emacs-lisp 
   (use-package gruvbox-theme)
   (load-theme 'gruvbox-dark-hard t) ; The modeline from doom is great but the rest is a bit rigid
-  (use-package doom-modeline) ; Turn off interface noise
+  (use-package doom-modeline
+    :config (doom-modeline-mode))
+  ;; Turn off interface noise
   (menu-bar-mode -1)
   (toggle-scroll-bar -1)
   (tool-bar-mode -1)
