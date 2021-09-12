@@ -6,7 +6,7 @@ Emacs with no packages is a little basic let's add some nice stuff
     :init
     (exec-path-from-shell-initialize))
   (setq python-shell-interpreter "/usr/bin/python3")
-  (setq helm-rg-ripgrep-executable "/usr/local/bin/rg")
+  (setq helm-rg-ripgrep-executable "/usr/bin/rg")
   (use-package flycheck)
   (use-package helm :config (helm-mode +1)
     :bind (("C-c k" . helm-rg)
